@@ -52,8 +52,8 @@ _EOF_
 }
 
 function main {
-    echo "### $1 START"
-    while read line
+    # echo "### $1 START"
+    while read -r line
     do
         if [[ $line =~ "#" ]];
         then
@@ -67,10 +67,10 @@ function main {
         then
             main ${BASH_REMATCH[2]}
         else
-            echo "$line"
+            printf '%s\n' "$line"
         fi
     done < $1
-    echo "### $1 END"
+    # echo "### $1 END"
 }
 
 # Parse command-line
